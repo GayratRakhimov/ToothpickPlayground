@@ -15,7 +15,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ toothpick_registry_package_name : 'com.elegion.test.behancer' ]
+                arguments = [ toothpick_registry_package_name : 'com.gayratrakhimov.toothpickplayground' ]
             }
         }
 

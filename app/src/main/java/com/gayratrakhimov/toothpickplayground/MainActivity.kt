@@ -4,11 +4,17 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import toothpick.Toothpick
 import javax.inject.Inject
+import javax.inject.Named
 
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var logger: Logger
+    @Named("FirstLogger")
+    lateinit var firstLogger: ILogger
+
+    @Inject
+    @Named("SecondLogger")
+    lateinit var secondLogger: ILogger
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         val scope = Toothpick.openScope(App::class.java!!)
         Toothpick.inject(this, scope)
 
-        logger.log("Test")
+        firstLogger.log("Test")
+        secondLogger.log("Test")
 
     }
 
